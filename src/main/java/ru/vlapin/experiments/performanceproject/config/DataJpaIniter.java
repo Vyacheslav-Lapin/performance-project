@@ -15,6 +15,7 @@ public class DataJpaIniter implements ApplicationRunner {
   CatRepository catRepository;
 
   @Override
+  @SuppressWarnings("checkstyle:ParameterName")
   public void run(ApplicationArguments __) {
     Stream.of("Мурзик, Барсик, Матроскин".split(", "))
         .map(Cat::new)
