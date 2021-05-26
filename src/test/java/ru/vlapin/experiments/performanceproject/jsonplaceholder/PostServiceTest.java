@@ -4,18 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import lombok.val;
-import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ru.vlapin.experiments.performanceproject.model.jsonplaceholder.Post;
 import ru.vlapin.experiments.performanceproject.service.jsonplaceholder.PostService;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
-class PostControllerTest {
+class PostServiceTest {
 
   long id = 57L;
   PostService postService;

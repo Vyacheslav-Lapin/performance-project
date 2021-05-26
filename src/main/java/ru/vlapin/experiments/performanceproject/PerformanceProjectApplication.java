@@ -1,10 +1,21 @@
 package ru.vlapin.experiments.performanceproject;
 
+import static org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType.HAL;
+
 import lombok.val;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
+import ru.vlapin.experiments.performanceproject.model.JavaConfigBasedSetterPropertiesPlaceholderExample;
 
 @SpringBootApplication
+@EnableHypermediaSupport(type = HAL)
+@EnableFeignClients("ru.vlapin.experiments.performanceproject.service")
+@ConfigurationPropertiesScan//("ru.vlapin.experiments.performanceproject")
 public class PerformanceProjectApplication {
 
   public static void main(String[] args) {
@@ -23,5 +34,11 @@ public class PerformanceProjectApplication {
     String s = stringBuffer.toString();
 
     System.out.println("s = " + s);
+  }
+
+  @Bean
+  @ConfigurationProperties("my-properties2")
+  JavaConfigBasedSetterPropertiesPlaceholderExample mySetterProperties2() {
+    return new JavaConfigBasedSetterPropertiesPlaceholderExample();
   }
 }

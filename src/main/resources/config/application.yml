@@ -3,3 +3,8 @@ mail:
     authMethod: basic
     username: user
     password: qwerty
+
+my-properties:
+  host: host1
+
+
